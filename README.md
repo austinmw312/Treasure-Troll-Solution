@@ -1,4 +1,4 @@
-# Treasure-Troll-Solution
+# Troll Challenge Solution
 A solution to the treasure troll challenge. See solution.js for solution.
 
 Problem statement:
