@@ -290,8 +290,8 @@ this.turn = function(cell){
 
 
 function encircleTower(direction_of_tower) {
-	/* Return the moveset to scan vicinity of tower (move in partial circle 
-	around tower) depending on where troll starts in relation to tower. */
+    /* Return the moveset to scan vicinity of tower (move in partial circle 
+    around tower) depending on where troll starts in relation to tower. */
 
 	if (direction_of_tower === "down") {
 		return ["right", "down", "down", "left", "left", "up"];
@@ -327,18 +327,18 @@ function findNearestUnvisitedCell(start, visit, map) {
         var current = queue.shift();
 
         if (visit[current[0]][current[1]] === false) { 
-			// Current cell is not visited
+	    // Current cell is not visited
             return current;
         }
 		
         var neighbors = getNeighbors(current, map); // Retrieve valid neighbors
 
-		// Add valid neighbors to the queue if not visited
+	// Add valid neighbors to the queue if not visited
         for (var i = 0; i < neighbors.length; i++) {
             var neighbor = neighbors[i];
             if (!local_visit[neighbor[0]][neighbor[1]]) { 
-				local_visit[neighbor[0]][neighbor[1]] = true;
-				queue.push(neighbor);
+		local_visit[neighbor[0]][neighbor[1]] = true;
+		queue.push(neighbor);
             }
         }
     }
