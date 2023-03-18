@@ -309,19 +309,19 @@ function encircleTower(direction_of_tower) {
 
 
 function findNearestUnvisitedCell(start, visit, map) {
-	/* Breadth-first-search on map and return 
-	coordinates of the nearest unvisited cell. */
+    /* Breadth-first-search on map and return 
+    coordinates of the nearest unvisited cell. */
 
-    	var queue = [start];
+    var queue = [start];
     
-	// Local visited array for BFS
-	var local_visit = new Array(visit.length);
+    // Local visited array for BFS
+    var local_visit = new Array(visit.length);
     for (var i = 0; i < local_visit.length; i++) {
         local_visit[i] = new Array(visit[i].length).fill(false);
     }
     local_visit[start[0]][start[1]] = true;
     
-	// BFS
+    // BFS
     while (queue.length > 0) {
 
         var current = queue.shift();
@@ -347,41 +347,41 @@ function findNearestUnvisitedCell(start, visit, map) {
 
 
 function findNearestUnusedBlock(start, map) {
-	/* BFS on map and return coordinates of the nearest unused block,
-	(block that is not already in staircase). */
+    /* BFS on map and return coordinates of the nearest unused block,
+    (block that is not already in staircase). */
 
     var queue = [start];
     
-	// Local visited array for BFS
-	var local_visit = new Array(map.length);
+    // Local visited array for BFS
+    var local_visit = new Array(map.length);
     for (var i = 0; i < local_visit.length; i++) {
         local_visit[i] = new Array(map[i].length).fill(false);
     }
     local_visit[start[0]][start[1]] = true;
 
-	// Blocks in these cells are already being used for the staircase
-	var tower_vicinity = [[tower[0], tower[1]], [tower[0], tower[1] + 1],
-			      [tower[0] + 1, tower[1] + 1], [tower[0] + 1, tower[1]],
-			      [tower[0] + 1, tower[1] - 1], [tower[0], tower[1] - 1],
-			      [tower[0] - 1, tower[1] - 1]];
+    // Blocks in these cells are already being used for the staircase
+    var tower_vicinity = [[tower[0], tower[1]], [tower[0], tower[1] + 1],
+			  [tower[0] + 1, tower[1] + 1], [tower[0] + 1, tower[1]],
+			  [tower[0] + 1, tower[1] - 1], [tower[0], tower[1] - 1],
+			  [tower[0] - 1, tower[1] - 1]];
 
-	// BFS
+    // BFS
     while (queue.length > 0) {
         var current = queue.shift();
         var x = current[0];
         var y = current[1];
 
-		// Return coords if block is not already being used
-        if (map[x][y][0] === BLOCK && 
-			!tower_vicinity.some(coord => coord[0] === x && coord[1] === y)) {
+	// Return coords if block is not already being used
+        if (map[x][y][0] === BLOCK 
+	    && !tower_vicinity.some(coord => coord[0] === x && coord[1] === y)) {
 
             return current;
         }
 		
-		// Retrieve neighbors of current cell
+	// Retrieve neighbors of current cell
         var neighbors = getNeighbors(current, map);
 
-		// Add valid neighbors to queue
+	// Add valid neighbors to queue
         for (var i = 0; i < neighbors.length; i++) {
             var neighbor = neighbors[i];
 
@@ -400,16 +400,16 @@ function shortestPathBFS(start, end, grid) {
 	in sequence of steps in order from left to right,
 	eg. ["right", "right", "down"]. */
     
-	var queue = [start];
+    var queue = [start];
 
-	// Local visited array for BFS
+    // Local visited array for BFS
     var local_visit = new Array(grid.length);
     for (var i = 0; i < local_visit.length; i++) {
         local_visit[i] = new Array(grid[i].length).fill(false);
     }
     local_visit[start[0]][start[1]] = true;
   
-	// BFS
+    // BFS
     while (queue.length > 0) {
         var current = queue.shift();
   
@@ -442,9 +442,9 @@ function shortestPathBFS(start, end, grid) {
 
 
 function getNeighbors(cell, grid) {
-	/* Retrieve the traversable neighbors of current cell,
-	ie. cells that are not walls and have a height difference not 
-	greater than 1 from the current cell. */
+    /* Retrieve the traversable neighbors of current cell,
+    ie. cells that are not walls and have a height difference not 
+    greater than 1 from the current cell. */
 
     var cur_height = grid[cell[0]][cell[1]][1];
     var i = cell[0];
