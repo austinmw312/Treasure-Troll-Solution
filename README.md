@@ -1,5 +1,5 @@
 # Troll Challenge Solution
-A solution to the treasure troll challenge. See solution.js for solution.
+A solution to the treasure troll challenge. Open index.html in browser for testing interface. See solution.js for solution.
 
 Problem statement:
 
