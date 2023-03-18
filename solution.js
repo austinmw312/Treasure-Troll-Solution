@@ -25,8 +25,8 @@ HIGH-LEVEL STRATEGY:
 	foundation, but each time, omitting one block at the beginning, thus 
 	creating the staircase.
 
-					  ####
-					 #####
+			      ####
+			     #####
 		staircase = ######
 
 	FINAL STEP: Finally, we save time by carrying a block to the top of the
@@ -132,8 +132,8 @@ this.turn = function(cell){
 
 		// Set target cells for building staircase on (arranged in circle around tower)
 		targets = [[tower[0], tower[1] + 1], [tower[0] + 1, tower[1] + 1],
-				   [tower[0] + 1, tower[1]], [tower[0] + 1, tower[1] - 1],
-				   [tower[0], tower[1] - 1], [tower[0] - 1, tower[1] - 1]];
+			   [tower[0] + 1, tower[1]], [tower[0] + 1, tower[1] - 1],
+			   [tower[0], tower[1] - 1], [tower[0] - 1, tower[1] - 1]];
 
 		// Create a copy (this will be target list for first level of the staircase)
 		cur_targets = targets.slice();
@@ -312,7 +312,7 @@ function findNearestUnvisitedCell(start, visit, map) {
 	/* Breadth-first-search on map and return 
 	coordinates of the nearest unvisited cell. */
 
-    var queue = [start];
+    	var queue = [start];
     
 	// Local visited array for BFS
 	var local_visit = new Array(visit.length);
@@ -361,9 +361,9 @@ function findNearestUnusedBlock(start, map) {
 
 	// Blocks in these cells are already being used for the staircase
 	var tower_vicinity = [[tower[0], tower[1]], [tower[0], tower[1] + 1],
-						  [tower[0] + 1, tower[1] + 1], [tower[0] + 1, tower[1]],
-						  [tower[0] + 1, tower[1] - 1], [tower[0], tower[1] - 1],
-						  [tower[0] - 1, tower[1] - 1]];
+			      [tower[0] + 1, tower[1] + 1], [tower[0] + 1, tower[1]],
+			      [tower[0] + 1, tower[1] - 1], [tower[0], tower[1] - 1],
+			      [tower[0] - 1, tower[1] - 1]];
 
 	// BFS
     while (queue.length > 0) {
@@ -386,8 +386,8 @@ function findNearestUnusedBlock(start, map) {
             var neighbor = neighbors[i];
 
             if (!local_visit[neighbor[0]][neighbor[1]]) {
-				local_visit[neighbor[0]][neighbor[1]] = true;
-				queue.push(neighbors[i]);
+		local_visit[neighbor[0]][neighbor[1]] = true;
+		queue.push(neighbors[i]);
             }
         }
     }
@@ -446,7 +446,7 @@ function getNeighbors(cell, grid) {
 	ie. cells that are not walls and have a height difference not 
 	greater than 1 from the current cell. */
 
-	var cur_height = grid[cell[0]][cell[1]][1];
+    var cur_height = grid[cell[0]][cell[1]][1];
     var i = cell[0];
     var j = cell[1];
     var neighbors = [];
